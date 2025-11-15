@@ -1,5 +1,5 @@
 resource "aws_iam_policy" "module_policy" {
-  name        = "assignment_policy_ec2_s3"
+  name        = "assignment_policy_ec2_s3_test"
   description = "assignment test policy"
 
   policy = jsonencode(
