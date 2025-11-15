@@ -2,13 +2,13 @@
 module "module1" {
   source = "./modules/ec2"
 
-  image_id = "ami-083b3f53cbda7e5a4"
-  iname    = "instance_module"
-  az       = "us-east-2b"
-  key      = "KP1"
-  sg_id = module.module3.my_sg_id
-  ownername = module.module2.my_owner_name
-  depends_on = [ module.module2, module.module3 ]
+  image_id   = "ami-083b3f53cbda7e5a4"
+  iname      = "instance_module"
+  az         = "us-east-2b"
+  key        = "KP1"
+  sg_id      = module.module3.my_sg_id
+  ownername  = module.module2.my_owner_name
+  depends_on = [module.module2, module.module3]
 }
 
 # module 2
@@ -30,7 +30,7 @@ module "module3" {
 
 module "module4" {
   source = "./modules/iam_policy"
-  
+
   user_module_name = module.module2.my_owner_name
-  depends_on = [ module.module2 ]
+  depends_on       = [module.module2]
 }
